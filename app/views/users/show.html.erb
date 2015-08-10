@@ -1,0 +1,17 @@
+<h1>Welcome, <%= @current_user.first_name %>!</h1>
+
+
+<div>
+  <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+  <p><%= current_user.email %></p>
+</div>
+
+<% if current_user.posts.any? %>
+  <h3>My Posts</h3>
+  <% current_user.posts.each do |post| %>
+    <p><%= post.title %> - <%= post.content %></p>
+  <% end %>
+<% else %>
+  <h4>You don't have any posts yet!</h4>
+<% end %>
+<%= link_to "Add New Post", new_post_path %>

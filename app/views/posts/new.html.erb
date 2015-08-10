@@ -1,0 +1,10 @@
+<div class="col-sm-4 col-sm-offset-4">
+  <legend>New Post</legend>
+
+	<%= form_for @post do |f| %>
+	  <%= f.text_field :title, placeholder: "Title", class: "form-control" %><br>
+	  <%= f.text_area :content, class: "form-control" %><br>
+	  <hr>
+	  <%= f.submit "Submit" %>
+	<% end %>
+</div>

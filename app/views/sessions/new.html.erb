@@ -1,0 +1,11 @@
+<div class='col-md-6 col-md-offset-3' >
+
+<h1>Log In</h1>
+<%= form_for :user, url: sessions_path do |f| %>
+  <%= f.email_field :email, placeholder: "Email", class: "form-control" %><br>
+  <%= f.password_field :password, placeholder: "Password", class: "form-control" %><br>
+  <hr>
+  <%= f.submit "Log In" %>
+<% end %>
+
+</div>

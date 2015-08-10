@@ -1,0 +1,52 @@
+== README
+
+#initial set up
+
+rails new -d postgresql rails-blog
+rails new rails-blog-app -d postgresql
+rails-blog-app
+rake db:create
+rails g model User email password_digest first_name last_name
+rails g controller Users new edit show
+rails g controller site index
+rails g controller Posts index new crete show edit update destroy
+rails g controller sessions new create
+rake db:migrate
+rails s
+subl .
+
+root route that points to "site#index"
+
+#set up users routes, controller, and auth
+
+Open up your app in Sublime, and navigate to your User model. Add has_secure_password to the model. This line of code gives our User model authentication methods via bcrypt
+
+
+open the Gemfile. Uncomment the bcrypt gem (near the bottom of the file). 
+
+run bundle install (or bundle for short) to install bcrypt
+
+UsersController - add a private method called user_params that creates strong parameters by whitelisting specific user attributes
+
+View - create form_for
+
+UsersController - create instance @user; new, create, show
+Add signup page and profile page
+SessionsController - new, create, destroy
+Add login and logout pages
+
+
+#create posts routes, controller
+
+rails g model Post title content 
+add routes - resources :users, only: [:new, :create] do
+    resources :posts
+update models - user has many posts; posts belongs to user
+rake db:migrate
+Create posts views - new, edit, show. Add posts to profile page
+
+
+
+
+
+<tt>rake doc:app</tt>.
